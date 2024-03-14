@@ -44,7 +44,7 @@ app.post("/api/notes", async (req, res) => {
         const notesArr = JSON.parse(data);
         notesArr.push(newNote);
         await fs.writeFile("./db/db.json", JSON.stringify(notesArr, null, 2));
-        res.status(200).sendFile(path.join(__dirname, "./db/db.json"));
+        res.status(200).json(newNote); // Send the newly added note as response
     } catch (err) {
         console.error(err);
         res.status(500).json({ status: "error", msg: "error accessing or writing to the database file" });
@@ -70,5 +70,5 @@ app.delete("/api/notes/:id", async (req, res) => {
     }
 });
 
-
-app.listen(PORT, () => console.log(`server started on ${PORT}`));
+// start the server
+app.listen(PORT, () => console.log(`server started on port ${PORT}`));
