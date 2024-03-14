@@ -44,7 +44,7 @@ app.post("/api/notes", async (req, res) => {
         const notesArr = JSON.parse(data);
         notesArr.push(newNote);
         await fs.writeFile("./db/db.json", JSON.stringify(notesArr, null, 2));
-        res.status(200).json(newNote); // Send the newly added note as response
+        res.status(200).json(newNote);
     } catch (err) {
         console.error(err);
         res.status(500).json({ status: "error", msg: "error accessing or writing to the database file" });
