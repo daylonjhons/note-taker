@@ -5,19 +5,25 @@
 The Note Taker application is designed to provide users with a streamlined platform for writing and saving notes. It offers a clean and intuitive interface, ensuring ease of use for individuals seeking to organize their thoughts and tasks.
 
 ## Table of Contents
+- [Description](##Description)
+- [Deployment](##Deployment)
 - [Screenshots](##Screenshots)
-- [Video](##Video)
 - [Licese](##License)
 - [Questions](##Questions)
+
+## Deployment
+
 
 
 ## Screenshots
 
 Here are some screenshots from the application
 
-## Video
+![Alt text](<images/Screenshot 2024-03-14 at 4.39.32 PM.png>)
 
-Here is a short video of the running application
+![Alt text](<images/Screenshot 2024-03-14 at 4.40.17 PM.png>)
+
+![Alt text](<images/Screenshot 2024-03-14 at 4.41.56 PM.png>)
 
 ## License 
 
