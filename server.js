@@ -51,6 +51,24 @@ app.post("/api/notes", async (req, res) => {
     }
 });
 
-// add route handler for deleting notes
+// route to delete note from the database
+app.delete("/api/notes/:id", async (req, res) => {
+    try {
+        const data = await fs.readFile("./db/db.json", "utf8");
+        const notes = JSON.parse(data);
+        const id = req.params.id;
+        const index = notes.findIndex(note => note.id === id);
+        if (index === -1) {
+            return res.status(404).json({ status: "error", msg: "note not found" });
+        }
+        notes.splice(index, 1);
+        await fs.writeFile("./db/db.json", JSON.stringify(notes, null, 2));
+        res.status(200).json({ status: "success", msg: "note deleted successfully" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ status: "error", msg: "error accessing or writing to the database file" });
+    }
+});
+
 
 app.listen(PORT, () => console.log(`server started on ${PORT}`));
